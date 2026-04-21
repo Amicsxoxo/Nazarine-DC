@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Nazarine DC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Public+Sans:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#012d1d",
+                    "on-primary-container": "#86af99",
+                    "on-surface-variant": "#414844",
+                    "tertiary-container": "#00405e",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-surface": "#191c1e",
+                    "inverse-primary": "#a5d0b9",
+                    "background": "#f7f9fb",
+                    "surface": "#f7f9fb",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-high": "#e6e8ea",
+                    "on-tertiary-container": "#2bb0f5",
+                    "on-secondary-container": "#19724f",
+                    "surface-bright": "#f7f9fb",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#3f6653",
+                    "tertiary": "#00293e",
+                    "secondary-container": "#a0f4c8",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "tertiary-fixed": "#c9e6ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#002113",
+                    "secondary": "#0e6c4a",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed": "#a0f4c8",
+                    "primary-container": "#1b4332",
+                    "primary-fixed": "#c1ecd4",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#001e2f",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eceef0",
+                    "on-background": "#191c1e",
+                    "outline": "#717973",
+                    "on-primary-fixed": "#002114",
+                    "outline-variant": "#c1c8c2",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Public Sans"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Public Sans', sans-serif;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex overflow-hidden">
+<!-- SideNavBar Shell -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-slate-50 dark:bg-emerald-950 py-8 space-y-2 border-r-0 font-['Public_Sans'] font-medium shrink-0">
+<div class="px-6 mb-10">
+<h1 class="font-['Manrope'] text-2xl font-black text-emerald-900 dark:text-emerald-50 tracking-tighter">Nazarine</h1>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-600 dark:text-emerald-400 mx-2 px-4 py-2 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-emerald-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-600 dark:text-emerald-400 mx-2 px-4 py-2 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-emerald-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<a class="text-slate-600 dark:text-emerald-400 mx-2 px-4 py-2 flex items-center gap-3 hover:bg-slate-200 dark:hover:bg-emerald-900/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span>Grid Monitoring</span>
+</a>
+<a class="bg-emerald-800 dark:bg-emerald-700 text-white rounded-md mx-2 px-4 py-2 flex items-center gap-3 duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 pt-6 border-t border-emerald-900/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional man with a friendly expression in a brightly lit studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQWKysCrTzLRSBVfp1n7_1lvOtZRQUE9GN5LXRoeCzYjCe50j577F9Rl-SZRAgeFUTUvZl8jXteNx82bKetYXbDtrHObX9lWIJURRnZA59Hz3yHpMGKkC4hPswPktAAqolwAAjmKKdeo30wm3-NjEaqJ8tys-VI8oNh2hy3XUIh98X_kLkyNTjrYQjCDQ8lhaTg4xl0Dn9Aa8GkIC-IMxYSGxjp-p4-uZXWWpqY56gzzGsZElscHLnCSjF_4m1cfXABl4NAxt-rS0"/>
+</div>
+<div>
+<p class="text-sm font-bold text-emerald-900 dark:text-emerald-50">System Overview</p>
+<p class="text-xs text-slate-500">Active Monitoring</p>
+</div>
+</div>
+<button class="mt-4 w-full py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity">
+                Export Report
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-50 bg-slate-50/80 dark:bg-emerald-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
+<h2 class="font-['Manrope'] font-bold tracking-tighter text-emerald-900 dark:text-emerald-50 text-xl">Settings</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-slate-100 dark:bg-emerald-900/30 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64" placeholder="Search settings..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-emerald-100/50 dark:hover:bg-emerald-800/50 rounded-full transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-emerald-100/50 dark:hover:bg-emerald-800/50 rounded-full transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-6xl mx-auto w-full">
+<header class="mb-12">
+<h3 class="font-headline text-4xl font-extrabold text-primary tracking-tighter mb-2">System Configuration</h3>
+<p class="font-body text-on-surface-variant max-w-2xl">Manage your organizational identity and energy consumption parameters to optimize the Nazarine DC engine.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Profile Settings Card -->
+<div class="lg:col-span-7 space-y-8">
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm transition-all hover:shadow-md">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<h4 class="font-headline text-2xl font-bold text-primary">Profile Settings</h4>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-semibold uppercase tracking-widest text-on-surface-variant" for="username">Username</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-4 py-3 font-body text-on-surface rounded-t-lg transition-all" id="username" placeholder="Enter username" type="text" value="Nazarine_admin_2024"/>
+<p class="text-xs text-slate-400 mt-1">This is your public display name within the monitoring network.</p>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-semibold uppercase tracking-widest text-on-surface-variant" for="email">Email Address</label>
+<input class="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 px-4 py-3 font-body text-on-surface rounded-t-lg transition-all" id="email" placeholder="Enter email" type="email" value="admin@Nazarinesynthesis.io"/>
+</div>
+<div class="pt-4 flex justify-end">
+<button class="bg-primary text-on-primary font-label text-sm font-bold px-8 py-3 rounded-lg hover:opacity-95 transition-all shadow-lg shadow-primary/10 active:scale-95">
+                                    Save Profile Changes
+                                </button>
+</div>
+</div>
+</section>
+<!-- Energy Billing Card -->
+<section class="bg-primary-container text-white rounded-xl p-8 shadow-xl relative overflow-hidden">
+<!-- Decorative glow -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<h4 class="font-headline text-2xl font-bold text-white">Energy Billing</h4>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-semibold uppercase tracking-widest text-on-primary-container" for="kwh_cost">Cost per kWh (₦)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-primary-container">₦</span>
+<input class="w-full bg-white/10 border-0 border-b-2 border-white/20 focus:border-white focus:ring-0 pl-8 pr-4 py-3 font-body text-white rounded-t-lg transition-all" id="kwh_cost" step="0.01" type="number" value="0.14"/>
+</div>
+<p class="text-xs text-on-primary-container mt-1">Updates real-time cost estimations in Analytics.</p>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-xs font-semibold uppercase tracking-widest text-on-primary-container" for="currency">Currency</label>
+<select class="w-full bg-white/10 border-0 border-b-2 border-white/20 focus:border-white focus:ring-0 px-4 py-3 font-body text-white rounded-t-lg transition-all appearance-none" id="currency">
+<option class="text-primary" value="USD">USD - US Dollar</option>
+<option class="text-primary" value="EUR">EUR - Euro</option>
+<option class="text-primary" value="GBP">GBP - British Pound</option>
+</select>
+</div>
+</div>
+<div class="pt-4 flex justify-end">
+<button class="bg-secondary-container text-on-secondary-container font-label text-sm font-bold px-8 py-3 rounded-lg hover:bg-secondary-fixed transition-all active:scale-95">
+                                        Apply Pricing Rules
+                                    </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Secondary Sections / Sidebar Info -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6">
+<h5 class="font-headline text-lg font-bold text-primary mb-4">Account Overview</h5>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Membership</span>
+<span class="text-sm font-bold text-primary px-3 py-1 bg-secondary-container rounded-full">Pro Enterprise</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Active Nodes</span>
+<span class="text-sm font-bold text-primary">1,248 Units</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Next Renewal</span>
+<span class="text-sm font-bold text-primary">Dec 14, 2024</span>
+</div>
+</div>
+</div>
+<div class="bg-tertiary rounded-xl p-6 text-white overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-container/50 to-transparent opacity-50"></div>
+<div class="relative z-10">
+<h5 class="font-headline text-lg font-bold mb-2">Need Technical Help?</h5>
+<p class="text-sm text-tertiary-fixed-dim mb-4 leading-relaxed">Our environmental engineering team is available 24/7 for system calibrations and infrastructure audits.</p>
+<button class="flex items-center gap-2 text-sm font-bold text-white group-hover:gap-3 transition-all">
+                                Contact Support 
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-6 -right-6 text-9xl opacity-5 rotate-12" data-icon="support_agent">support_agent</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-highest/40 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Audit Log</p>
+<p class="text-xs text-on-surface-variant">Last change: Oct 28 by admin_kj</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric Grid Detail -->
+<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 opacity-60">
+<div class="p-8 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="security">security</span>
+<h6 class="font-bold text-primary mb-1">Encryption</h6>
+<p class="text-xs">End-to-end 256-bit AES for all telemetry data streams.</p>
+</div>
+<div class="p-8 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="language">language</span>
+<h6 class="font-bold text-primary mb-1">Localization</h6>
+<p class="text-xs">System interface adapted for 14 regional grid standards.</p>
+</div>
+<div class="p-8 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="eco">eco</span>
+<h6 class="font-bold text-primary mb-1">Carbon Tracking</h6>
+<p class="text-xs">Automated Scope 2 emission reporting enabled by default.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar Shell (hidden on web as per platform rule) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-effect flex justify-around items-center py-3 px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-[10px] font-bold">Trends</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+</nav>
+</body></html>
