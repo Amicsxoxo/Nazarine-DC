@@ -8,6 +8,11 @@ from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
+# --- NEW: STARTUP IMPORTS ---
+import subprocess
+import threading
+import time
+import os
 
 app = FastAPI(title="Nazarine Synthesis API")
 
@@ -19,9 +24,48 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --- NEW: DATABASE SEEDING FUNCTION ---
+def seed_database():
+    """Initialize database with historical data if empty or minimal."""
+    db_path = 'nazarine_memory.db'
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    
+    # Create table if not exists
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS energy_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            device_id TEXT,
+            voltage REAL,
+            current REAL,
+            power_kw REAL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    
+    # Check if we need to seed data
+    cursor.execute('SELECT COUNT(*) FROM energy_history')
+    count = cursor.fetchone()[0]
+    
+    if count < 100:
+        print("🌱 Injecting 2 YEARS of REALISTIC historical data into Nazarine DC...")
+        conn.close()
+        # Run seed_db.py script
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        seed_script = os.path.join(script_dir, 'seed_db.py')
+        subprocess.run(['python', seed_script], check=True)
+        print("✅ Database seeding complete!")
+    else:
+        print(f"✅ Database already contains {count} records. Skipping seed.")
+    
+    conn.close()
+
+# Initialize global database connection
 conn = sqlite3.connect('nazarine_memory.db', check_same_thread=False)
 cursor = conn.cursor()
 
+# Ensure table exists on initial load
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS energy_history (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,6 +77,40 @@ cursor.execute('''
     )
 ''')
 conn.commit()
+
+# --- NEW: ESP32 SIMULATOR THREAD ---
+def run_esp32_simulator():
+    """Run the ESP32 simulator in a background thread."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    mock_script = os.path.join(script_dir, 'mock_esp32.py')
+    
+    print("🚀 Starting Nazarine ESP32 Simulator (Realistic Residential Mode)...")
+    try:
+        subprocess.run(['python', mock_script], check=True)
+    except KeyboardInterrupt:
+        print("🛑 ESP32 Simulator stopped.")
+    except Exception as e:
+        print(f"🛑 ESP32 Simulator error: {e}")
+
+# --- NEW: LIFESPAN EVENT HANDLER ---
+@app.on_event("startup")
+async def startup_event():
+    """Run on server startup: seed DB and start ESP32 simulator."""
+    print("=" * 50)
+    print("🔌 Nazarine DC - Smart Energy Management System")
+    print("=" * 50)
+    
+    # Step 1: Seed the database
+    seed_database()
+    
+    # Step 2: Start ESP32 simulator in background thread
+    simulator_thread = threading.Thread(target=run_esp32_simulator, daemon=True)
+    simulator_thread.start()
+    print("✅ ESP32 Simulator running in background...")
+    
+    print("=" * 50)
+    print("🎉 System fully operational! Access dashboards in your browser.")
+    print("=" * 50)
 
 class EnergyReading(BaseModel):
     device_id: str
