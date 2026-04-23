@@ -331,7 +331,7 @@
     // --- MONTHLY DATA RENDERER ---
     async function loadMonthlyData() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/monthly');
+            const response = await fetch('/api/monthly');
             const result = await response.json();
             
             if (result.status === "success" && result.data.length > 0) {
@@ -417,7 +417,7 @@
     // --- YEARLY DATA RENDERER ---
     async function loadYearlyData() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/yearly');
+            const response = await fetch('/api/yearly');
             const result = await response.json();
             
             if (result.status === "success" && result.data.length > 0) {

@@ -617,7 +617,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- WEEKLY TRENDS RENDERER ---
     async function loadWeeklyData() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/weekly');
+            const response = await fetch('/api/weekly');
             const result = await response.json();
             
             if (result.status === "success" && result.data.length >= 7) {
@@ -676,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function loadPeakHourData() {
         try {
             // Reusing the hourly API to find the daily peak!
-            const response = await fetch('http://127.0.0.1:8000/api/hourly');
+            const response = await fetch('/api/hourly');
             const result = await response.json();
             
             if (result.status === "success" && result.data.length > 0) {
@@ -703,7 +703,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Don't forget to call it when the page loads!
     loadPeakHourData();
     // --- GLOBAL TELEMETRY RECEIVER ---
-    const ws = new WebSocket('ws://127.0.0.1:8000/ws/realtime');
+    const ws = new WebSocket((window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/ws/realtime');
 
     ws.onopen = () => console.log('🟢 Global Telemetry Connected');
 

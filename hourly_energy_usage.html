@@ -502,7 +502,7 @@
 
     async function loadHourlyData() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/hourly');
+            const response = await fetch('/api/hourly');
             const result = await response.json();
             
             if (result.status === "success" && result.data.length > 0) {
@@ -614,7 +614,7 @@
 
         try {
             // 2. Fetch the 24-hour valley detection from Python
-            const response = await fetch('http://127.0.0.1:8000/api/recommendation');
+            const response = await fetch('/api/recommendation');
             const result = await response.json();
             
             if (result.status === "success") {
@@ -643,7 +643,7 @@
     }
 
     // --- 2. LIVE TELEMETRY RECEIVER (THE WEBSOCKET) ---
-    const ws = new WebSocket('ws://127.0.0.1:8000/ws/realtime');
+    const ws = new WebSocket((window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/ws/realtime');
 
     ws.onopen = () => console.log('🟢 Global Telemetry Connected');
 

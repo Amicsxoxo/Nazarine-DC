@@ -541,7 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 2. Fetch the AI response from Python
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/chat', {
+            const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: message })
@@ -583,7 +583,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     // --- GLOBAL TELEMETRY RECEIVER ---
-    const ws = new WebSocket('ws://127.0.0.1:8000/ws/realtime');
+    const ws = new WebSocket((window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/ws/realtime');
 
     ws.onopen = () => console.log('🟢 Global Telemetry Connected');
 

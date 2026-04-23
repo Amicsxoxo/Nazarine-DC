@@ -483,7 +483,7 @@
         }
     });
     // --- GLOBAL TELEMETRY RECEIVER ---
-    const ws = new WebSocket('ws://127.0.0.1:8000/ws/realtime');
+    const ws = new WebSocket((window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/ws/realtime');
 
     ws.onopen = () => console.log('🟢 Global Telemetry Connected');
 

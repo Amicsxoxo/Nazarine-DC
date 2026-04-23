@@ -522,7 +522,7 @@
 
             try {
                 // Ping the Scikit-Learn Python engine
-                const response = await fetch('http://127.0.0.1:8000/api/forecast');
+                const response = await fetch('/api/forecast');
                 const result = await response.json();
 
                 if (result.status === "success") {
@@ -606,7 +606,7 @@
     // 1. Fetch Database History on Load
     async function loadDashboardData() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/history');
+            const response = await fetch('/api/history');
             const result = await response.json();
             
             if (result.status === "success" && result.data.length > 0) {
@@ -663,7 +663,7 @@
     loadDashboardData();
 
     // 2. The Live WebSocket (Updates number, chart, AND new metrics)
-    const ws = new WebSocket('ws://127.0.0.1:8000/ws/realtime');
+    const ws = new WebSocket((window.location.protocol === 'https:' ? 'wss:' : 'ws:') + '//' + window.location.host + '/ws/realtime');
 
     ws.onopen = () => console.log('🟢 Connected to Nazarine Live Telemetry');
 

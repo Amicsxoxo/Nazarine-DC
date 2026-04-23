@@ -1,11 +1,58 @@
 ```
+# Database
+*.db
+
+# Environment variables
+.env
+.env.local
+.env.*
+
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.pot
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
 
-# Database
-*.db
-nazarine_memory.db
+# Dependencies
+node_modules/
+julia-*/
+zig*/
+target/
+.gradle/
+dist/
+build/
+
+# Vercel
+.vercel/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 ```
